@@ -1,0 +1,82 @@
+﻿<Window x:Class="MyMediaRegister_TE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyMediaRegister_TE"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+
+        <!--TabControl-->
+        <TabControl Grid.Row="0" Grid.Column="0" Margin="10">
+            <TabItem Header="Lägg till bok" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Titel" />
+                    <TextBox x:Name="tbxBookTitle" Grid.Row="1" Grid.Column="1" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Författare" />
+                    <TextBox x:Name="tbxAuthor" Grid.Row="2" Grid.Column="1" />
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Antal sidor" />
+                    <TextBox x:Name="tbxPages" Grid.Row="3" Grid.Column="1"/>
+                    <Button Grid.Row="5" Grid.Column="1" Content="Lägg till bok" Click="AddBook_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Lägg till film" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="5*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Titel" />
+                    <TextBox x:Name="tbxMoveTitle" Grid.Row="1" Grid.Column="1" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Regisör" />
+                    <TextBox x:Name="tbxDirector" Grid.Row="2" Grid.Column="1" />
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Antal minuter" />
+                    <TextBox x:Name="tbxLength" Grid.Row="3" Grid.Column="1"/>
+                    <Button Click="AddMovie_Click" Grid.Row="5" Grid.Column="1" Content="Lägg till film" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <!--Listbox-->
+        <ListBox x:Name="listbox" Grid.Row="0" Grid.Column="1" Margin="10 32 10 10">
+
+        </ListBox>
+        <!--Groupbox-->
+        <GroupBox Header="Visa" Grid.Row="1" Grid.Column="1" Margin="10" >
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Content="Alla" Margin="20"/>
+                <RadioButton Content="Böcker" Margin="20"/>
+                <RadioButton Content="Filmer" Margin="20"/>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>
