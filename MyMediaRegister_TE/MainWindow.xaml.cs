@@ -19,14 +19,28 @@ public partial class MainWindow : Window
 
     private void AddBook_Click(object sender, RoutedEventArgs e)
     {
-        string title = tbxBookTitle.Text;
-        string author = tbxAuthor.Text;
-        int pages = int.Parse(tbxPages.Text);
+        try
+        {
+            string title = tbxBookTitle.Text;
+            string author = tbxAuthor.Text;
 
-        Book book = new Book(title, author, pages);
-        
-        _medias.Add(book);
-        UpdateListBox();
+            int pages = int.Parse(tbxPages.Text);
+
+            Book book = new Book(title, author, pages);
+
+            _medias.Add(book);
+            UpdateListBox();
+        } 
+        catch 
+        {
+            MessageBox.Show("Felaktig inmatning");
+        }
+        finally
+        {
+            tbxBookTitle.Text = "";
+            tbxAuthor.Text = "";
+            tbxPages.Text = "";
+        }
     }
 
     private void AddMovie_Click(object sender, RoutedEventArgs e)
