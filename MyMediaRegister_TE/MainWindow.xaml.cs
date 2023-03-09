@@ -1,6 +1,7 @@
 ﻿using MyMediaRegister_TE.Models;
 using System.Windows;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace MyMediaRegister_TE;
 /// <summary>
@@ -13,6 +14,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        rbAll.IsChecked = true;
     }
 
     private void AddBook_Click(object sender, RoutedEventArgs e)
@@ -24,7 +26,7 @@ public partial class MainWindow : Window
         Book book = new Book(title, author, pages);
         
         _medias.Add(book);
-        listbox.Items.Add(book);
+        UpdateListBox();
     }
 
     private void AddMovie_Click(object sender, RoutedEventArgs e)
@@ -36,6 +38,32 @@ public partial class MainWindow : Window
         Movie movie = new Movie(title, director, minutes);
 
         _medias.Add(movie);
-        listbox.Items.Add(movie);
+        UpdateListBox();
+    }
+
+    private void UpdateListBox()
+    {
+        listbox.Items.Clear();
+
+        foreach (Media media in _medias)
+        {
+            if (rbMovies.IsChecked == true && media is Movie)
+            {
+                listbox.Items.Add(media);
+            }
+            else if (rbBooks.IsChecked == true && media is Book)
+            {
+                listbox.Items.Add(media);
+            }
+            else if (rbAll.IsChecked == true)
+            {
+                listbox.Items.Add(media);
+            }
+        }
+
+    }
+    private void Rb_Checked(object sender, RoutedEventArgs e)
+    {
+        UpdateListBox();
     }
 }

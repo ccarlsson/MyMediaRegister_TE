@@ -39,7 +39,10 @@
                     <TextBox x:Name="tbxAuthor" Grid.Row="2" Grid.Column="1" />
                     <TextBlock Grid.Row="3" Grid.Column="0" Text="Antal sidor" />
                     <TextBox x:Name="tbxPages" Grid.Row="3" Grid.Column="1"/>
-                    <Button Grid.Row="5" Grid.Column="1" Content="Lägg till bok" Click="AddBook_Click" />
+                    <Button Grid.Row="5" 
+                            Grid.Column="1" 
+                            Content="Lägg till bok" 
+                            Click="AddBook_Click" />
                 </Grid>
             </TabItem>
             <TabItem Header="Lägg till film" >
@@ -73,9 +76,9 @@
         <!--Groupbox-->
         <GroupBox Header="Visa" Grid.Row="1" Grid.Column="1" Margin="10" >
             <StackPanel Orientation="Horizontal">
-                <RadioButton Content="Alla" Margin="20"/>
-                <RadioButton Content="Böcker" Margin="20"/>
-                <RadioButton Content="Filmer" Margin="20"/>
+                <RadioButton x:Name="rbAll" Checked="Rb_Checked" Content="Alla" Margin="20"/>
+                <RadioButton x:Name="rbBooks" Checked="Rb_Checked" Content="Böcker" Margin="20"/>
+                <RadioButton x:Name="rbMovies" Checked="Rb_Checked" Content="Filmer" Margin="20"/>
             </StackPanel>
         </GroupBox>
     </Grid>
