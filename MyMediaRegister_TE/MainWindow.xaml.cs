@@ -1,7 +1,6 @@
 ﻿using MyMediaRegister_TE.Models;
-using System.Windows;
 using System.Collections.Generic;
-using System.Windows.Controls;
+using System.Windows;
 
 namespace MyMediaRegister_TE;
 /// <summary>
@@ -9,7 +8,7 @@ namespace MyMediaRegister_TE;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private List<Media> _medias = new List<Media>();
+    private readonly List<Media> _medias = new();
 
     public MainWindow()
     {
@@ -30,8 +29,8 @@ public partial class MainWindow : Window
 
             _medias.Add(book);
             UpdateListBox();
-        } 
-        catch 
+        }
+        catch
         {
             MessageBox.Show("Felaktig inmatning");
         }
